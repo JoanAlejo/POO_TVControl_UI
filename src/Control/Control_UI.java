@@ -15,8 +15,11 @@ public class Control_UI {
     private JLabel vol_text;
     private JComboBox<InputSourceTV> comboBoxInput;
     private JLabel inputSource;
+    private JLabel canales;
 
     public int vol = 0;
+    public int i=0;
+    public String[] chanel = {"Hbo","Disney","Fox","Señal Colombia","Cartoon Network","Venus","Comedy Central","Mtv","Disney XD","Canal uno"};
 
     public Control_UI() {
 
@@ -26,15 +29,38 @@ public class Control_UI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                vol = vol - 1;
-                vol_text.setText(String.valueOf(vol));
+                if (vol>0&&vol<=10) {
+                    vol = vol - 1;
+                    vol_text.setText(String.valueOf(vol));
+                }
             }
         });
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vol = vol + 1;
-                vol_text.setText(String.valueOf(vol));
+                if (vol>=0&&vol<10) {
+                    vol = vol + 1;
+                    vol_text.setText(String.valueOf(vol));
+                }
+            }
+        });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (i>0&&i<=9) {
+                    i-=1;
+                    canales.setText(String.valueOf(chanel[i]));
+                }
+            }
+        });
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (i>=0&&i<9) {
+                    i+=1;
+                    canales.setText(String.valueOf(chanel[i]));
+                }
             }
         });
         comboBoxInput.addActionListener(new ActionListener() {
