@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Control_UI {
+    private JProgressBar volProgress;
     private JPanel mainPanel;
     private JButton button1;
     private JButton button2;
@@ -23,6 +24,9 @@ public class Control_UI {
 
     public Control_UI() {
 
+        volProgress.setMinimum(0);
+        volProgress.setMaximum(10);
+        volProgress.setValue(vol);
         comboBoxInput.setModel(new DefaultComboBoxModel<>(InputSourceTV.values()));
 
         button1.addActionListener(new ActionListener() {
@@ -32,6 +36,7 @@ public class Control_UI {
                 if (vol>0&&vol<=10) {
                     vol = vol - 1;
                     vol_text.setText(String.valueOf(vol));
+                    volProgress.setValue(vol);
                 }
             }
         });
@@ -41,6 +46,7 @@ public class Control_UI {
                 if (vol>=0&&vol<10) {
                     vol = vol + 1;
                     vol_text.setText(String.valueOf(vol));
+                    volProgress.setValue(vol);
                 }
             }
         });
